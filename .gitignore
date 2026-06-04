@@ -1,0 +1,29 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+.DS_Store
+
+# Secrets / local env
+.env
+.env.*
+*.key
+*.pem
+
+# Real / private datasets — НИКОГДА не коммитить (в fixtures держим только синтетику)
+tests/fixtures/kostya.csv
+
+# Сгенерированные бинарные артефакты
+*.pptx
+

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "research-platform"
+version = "0.1.0"
+description = "Quasi-experiment analytics platform (DiD, Event Study, Causal Impact, ITS, Forecast baseline, Anomaly Detection)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "streamlit>=1.57",
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "pydantic>=2.6",
+    "plotly>=5.20",
+    "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+research-app = "research_platform.app.streamlit_app:run_app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/research_platform"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
